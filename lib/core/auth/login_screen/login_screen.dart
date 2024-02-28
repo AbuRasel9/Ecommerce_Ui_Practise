@@ -1,8 +1,10 @@
-import 'package:ecommerce_app/core/auth/registration_screen.dart';
+import 'package:ecommerce_app/core/auth/forgote_password/forgate_password_screen/forgote_password_scree.dart';
+import 'package:ecommerce_app/core/auth/registration_screen/registration_screen.dart';
 import 'package:ecommerce_app/core/auth/widget/backgoround_image.dart';
-import 'package:ecommerce_app/core/auth/widget/elevated_button.dart';
-import 'package:ecommerce_app/core/auth/widget/have_account_or_not.dart';
+import 'package:ecommerce_app/core/auth/widget/app_elevated_button.dart';
+import 'package:ecommerce_app/core/auth/widget/have_account_or_not_widget.dart';
 import 'package:ecommerce_app/core/auth/widget/input_form_feild.dart';
+import 'package:ecommerce_app/core/home/main_bottom_nav_bar/main_bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -21,7 +23,9 @@ class LoginScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const BackGroundImageLoginScreen(text: 'Get Started With',),
+              const BackGroundImageLoginScreen(
+                text: 'Get Started With',
+              ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: Column(
@@ -46,9 +50,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                     FadeInUp(
                       duration: const Duration(milliseconds: 1900),
-                      child: ButtonElevated(
+                      child: AppElevatedButton(
                         onPressed: () {
-
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const MainBottomNavBar()));
                         },
                         buttonText: "Login",
                       ),
@@ -60,26 +64,31 @@ class LoginScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 2000),
                       child: TextButton(
                         onPressed: () {},
-                        child: const Text(
-                          "Forgot Password?",
+                        child:  TextButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ForgatePasswordScreen()));
+                          },
+                          child:  const Text("Forgot Password?",
                           style: TextStyle(
                             fontSize: 17,
                             color: Color.fromRGBO(143, 148, 251, 1),
-                          ),
+                          ),),
+
                         ),
                       ),
                     ),
                     FadeInUp(
                       duration: const Duration(milliseconds: 2000),
-                      child:  HaveAccountOrNotWidget(
+                      child: HaveAccountOrNotWidget(
                         text: "Don't Have Account?",
-                        buttonText: "Sign Up", onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const RegistrationScreen()));
-
-                      },
+                        buttonText: "Sign Up",
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegistrationScreen()));
+                        },
                       ),
                     ),
                   ],

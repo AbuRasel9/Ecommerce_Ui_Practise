@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/splash_Screen/splash_screen.dart';
+import 'package:ecommerce_app/utils/theme/base_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
+    return MaterialApp(
+      theme: AppBaseTheme.lightTheme,
+      home: const SplashScreen(),
     );
   }
 }

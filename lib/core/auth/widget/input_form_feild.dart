@@ -12,10 +12,9 @@ class InputFormFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-          hintStyle: const TextStyle(color: Colors.black),
+
           hintText: text,
-          border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.deepPurpleAccent))),
+      ),
     );
   }
 }
