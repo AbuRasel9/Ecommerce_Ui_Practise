@@ -18,14 +18,14 @@ class SliderItem extends StatelessWidget {
     return Container(
       // padding: EdgeInsets.symmetric(horizontal: 15),
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
 
       decoration: BoxDecoration(
         color: const Color.fromRGBO(123, 129, 232, 1.0),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(imgLink,height: 128,width: 174,fit: BoxFit.cover,),
