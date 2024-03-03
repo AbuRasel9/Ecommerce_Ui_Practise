@@ -1,9 +1,9 @@
-
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/cart_screen/cart_screen.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/categories_screen/categories_screen.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/home_screen/home_screen.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/wish_list_screen/wish_list_screen.dart';
+import 'package:ecommerce_app/core/home_view/cart_screen/cart_screen.dart';
+import 'package:ecommerce_app/core/home_view/categories_screen/categrory_screen/categories_screen.dart';
+import 'package:ecommerce_app/core/home_view/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../wish_list_screen/wish_list_screen.dart';
 
 
 class MainBottomNavBar extends StatefulWidget {
@@ -18,8 +18,9 @@ class _MainBottomNavBarState extends State<MainBottomNavBar> {
   List<Widget> screens = [
     const HomeScreen(),
     const CategoriesScreen(),
-    const CartScreen(),
     const WishListScreen(),
+    const CartScreen(),
+
   ];
 
   @override
@@ -53,3 +54,4 @@ class _MainBottomNavBarState extends State<MainBottomNavBar> {
     );
   }
 }
+

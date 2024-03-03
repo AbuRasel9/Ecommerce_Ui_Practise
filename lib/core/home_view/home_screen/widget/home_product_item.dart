@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AllProductItem extends StatelessWidget {
-  const AllProductItem({
+class HomeProductItem extends StatelessWidget {
+  const HomeProductItem({
     super.key,
     required this.imgPath,
     required this.productName,
@@ -22,20 +22,24 @@ class AllProductItem extends StatelessWidget {
         .of(context)
         .textTheme;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 10, bottom: 10, right: 10),
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: const Color.fromRGBO(231, 247, 247, 1),
-          ),
-          child: Image.asset(
-            imgPath,
-            height: 110,
-            width: 120,
-            fit: BoxFit.cover,
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(top: 10, bottom: 10, right: 10,),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: const Color.fromRGBO(231, 247, 247, 1),
+            ),
+            child: Image.asset(
+              imgPath,
+          
+              height: 125,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const SizedBox(
@@ -46,8 +50,9 @@ class AllProductItem extends StatelessWidget {
           style: textTheme.bodySmall,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+
             Text("\$${price}"),
             TextButton.icon(
               onPressed: () {},
@@ -65,7 +70,8 @@ class AllProductItem extends StatelessWidget {
                 width: 20,
                 fit: BoxFit.cover,
               ),
-            ),
+            )
+
           ],
         ),
       ],

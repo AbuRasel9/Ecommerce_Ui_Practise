@@ -4,7 +4,7 @@ import 'package:ecommerce_app/core/auth/widget/backgoround_image.dart';
 import 'package:ecommerce_app/core/auth/widget/app_elevated_button.dart';
 import 'package:ecommerce_app/core/auth/widget/have_account_or_not_widget.dart';
 import 'package:ecommerce_app/core/auth/widget/input_form_feild.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/main_bottom_nav_bar_screen.dart';
+import 'package:ecommerce_app/core/home_view/main_bottom_nav_bar/main_bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 

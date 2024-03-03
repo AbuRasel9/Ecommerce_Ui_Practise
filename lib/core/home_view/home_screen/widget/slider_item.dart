@@ -18,7 +18,7 @@ class SliderItem extends StatelessWidget {
     return Container(
       // padding: EdgeInsets.symmetric(horizontal: 15),
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
 
       decoration: BoxDecoration(
         color: const Color.fromRGBO(123, 129, 232, 1.0),

@@ -1,12 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/categories_screen/electronics_product/electronics_product.dart';
-import 'package:ecommerce_app/utils/common_widget/all_categories_item.dart';
-import 'package:ecommerce_app/utils/common_widget/all_product_item.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/home_screen/widget/common_appbar.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/home_screen/widget/slider_indicator.dart';
-import 'package:ecommerce_app/core/home/main_bottom_nav_bar/home_screen/widget/slider_item.dart';
+import 'package:ecommerce_app/core/home_view/categories_screen/categrory_screen/categories_screen.dart';
+import 'package:ecommerce_app/core/home_view/categories_screen/electronics_product_screen/electronics_product.dart';
+import 'package:ecommerce_app/utils/common_widget/common_appbar.dart';
+import 'package:ecommerce_app/core/home_view/home_screen/widget/home_product_item.dart';
+import 'package:ecommerce_app/core/home_view/home_screen/widget/slider_indicator.dart';
+import 'package:ecommerce_app/core/home_view/home_screen/widget/slider_item.dart';
+
 import 'package:ecommerce_app/models/product_models.dart';
 import 'package:ecommerce_app/services/network_requester.dart';
+import 'package:ecommerce_app/utils/common_widget/all_categories_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final searchBarController = TextEditingController();
 
   //call data
-  Future _getAllHotelInformation() async {
+  Future _getAllProductInformation() async {
     isLoading = true;
     final response = await NetworkRequester().getData();
     isLoading = false;
@@ -33,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    _getAllHotelInformation();
+    _getAllProductInformation();
     super.initState();
   }
 
@@ -72,15 +74,16 @@ class _HomeScreenState extends State<HomeScreen> {
     //slider indicator index
     final ValueNotifier<int> _currentSelectedIndex = ValueNotifier(0);
     return Scaffold(
-      appBar: AppBar(
-        leading: const SizedBox(),
-        title: const CommonAppBar(),
-      ),
+      // appBar: AppBar(
+      //   leading: const SizedBox(),
+      //   title: const
+      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CommonAppBar(),
               const SizedBox(
                 height: 10,
               ),
@@ -130,17 +133,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }).toList(),
               ),
+              //slider indicator-------------------------->
               const SizedBox(
                 height: 15,
               ),
-
-              //selected carousel background color
               CarouselIndicator(currentSelectedIndex: _currentSelectedIndex),
-              const SizedBox(
-                height: 20,
-              ),
+
+
+
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -152,7 +154,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: textTheme.headlineMedium,
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const CategoriesScreen()));
+                          },
                           child: Text(
                             "See More ",
                             style: textTheme.headlineMedium,
@@ -163,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     //All categories----------------------->
                     SizedBox(
-                      height: 160,
+                      height: 140,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 4,
@@ -198,16 +202,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
 
-                    const SizedBox(
-                      height: 15,
-                    ),
+
                     SizedBox(
-                      height: 250,
+                      height: 255,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: list.length,
                           itemBuilder: (context, index) {
-                            return AllProductItem(
+                            return HomeProductItem(
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),
@@ -237,12 +239,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 15,
                     ),
                     SizedBox(
-                      height: 250,
+                      height: 255,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: list.length,
                           itemBuilder: (context, index) {
-                            return AllProductItem(
+                            return HomeProductItem(
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),
@@ -272,12 +274,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 15,
                     ),
                     SizedBox(
-                      height: 250,
+                        height: 255,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: list.length,
                           itemBuilder: (context, index) {
-                            return AllProductItem(
+                            return HomeProductItem(
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),

@@ -37,6 +37,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         body:
         Expanded(
           child: GridView.builder(
+
             itemCount: allCategoryList.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4, childAspectRatio: .8),
