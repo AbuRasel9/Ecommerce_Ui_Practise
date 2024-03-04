@@ -14,4 +14,6 @@ class Utils {
         fontWeight: FontWeight.w600,
         color: Color.fromRGBO(143, 148, 251, 1));
   }
+
+  static Color primaryColor= const Color.fromRGBO(204, 205, 245, 1);
 }

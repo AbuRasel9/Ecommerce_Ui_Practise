@@ -8,6 +8,7 @@ class HomeProductItem extends StatelessWidget {
     required this.price,
     required this.rating,
     required this.iconButtonImage,
+    required this.onPressed,
   });
 
   final String imgPath;
@@ -15,30 +16,35 @@ class HomeProductItem extends StatelessWidget {
   final String price;
   final String rating;
   final String iconButtonImage;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme
-        .of(context)
-        .textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          child: Container(
-            margin: const EdgeInsets.only(top: 10, bottom: 10, right: 10,),
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: const Color.fromRGBO(231, 247, 247, 1),
-            ),
-            child: Image.asset(
-              imgPath,
-          
-              height: 125,
-              width: double.infinity,
-              fit: BoxFit.cover,
+          child: InkWell(
+            onTap: onPressed,
+            child: Container(
+              width: 180,
+
+              margin: const EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 10,
+              ),
+              // padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: const Color.fromRGBO(231, 247, 247, 1),
+              ),
+              child: Image.asset(
+                imgPath,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -52,8 +58,7 @@ class HomeProductItem extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
-            Text("\$${price}"),
+            Text("\$$price"),
             TextButton.icon(
               onPressed: () {},
               icon: const Icon(
@@ -71,7 +76,6 @@ class HomeProductItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             )
-
           ],
         ),
       ],

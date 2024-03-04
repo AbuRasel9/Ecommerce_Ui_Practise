@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SliderItem extends StatelessWidget {
-
   const SliderItem({
     super.key,
-    required this.imgLink, required this.offerText, required this.buttonText,
+    required this.imgLink,
+    required this.offerText,
+    required this.buttonText,
   });
+
   final String imgLink;
   final String offerText;
   final String buttonText;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,27 @@ class SliderItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(imgLink,height: 128,width: 174,fit: BoxFit.cover,),
-
+          Image.asset(
+            imgLink,
+            height: 128,
+            width: 174,
+            fit: BoxFit.cover,
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-
             children: [
-              const SizedBox(height: 29,),
-              Text(offerText,style: textTheme.labelSmall),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 29,
+              ),
+              Text(offerText, style: textTheme.labelSmall),
+              const SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                  onPressed: (){}, child: Text(buttonText))
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                  onPressed: () {},
+                  child: Text(buttonText))
             ],
           )
         ],

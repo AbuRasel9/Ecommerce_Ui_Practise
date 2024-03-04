@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app/core/home_view/categories_screen/categrory_screen/categories_screen.dart';
 import 'package:ecommerce_app/core/home_view/categories_screen/electronics_product_screen/electronics_product.dart';
+import 'package:ecommerce_app/core/home_view/product_details_screen/product_details_screen.dart';
 import 'package:ecommerce_app/utils/common_widget/common_appbar.dart';
 import 'package:ecommerce_app/core/home_view/home_screen/widget/home_product_item.dart';
-import 'package:ecommerce_app/core/home_view/home_screen/widget/slider_indicator.dart';
+import 'package:ecommerce_app/utils/common_widget/slider_indicator.dart';
 import 'package:ecommerce_app/core/home_view/home_screen/widget/slider_item.dart';
 
 import 'package:ecommerce_app/models/product_models.dart';
@@ -46,12 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     return _productDetails!.productDetails
         .where((element) =>
-    element.productName
-        .toLowerCase()
-        .startsWith(searchBarController.text.toLowerCase()) ||
-        element.productPrice
-            .toString()
-            .startsWith(searchBarController.text.toLowerCase()))
+            element.productName
+                .toLowerCase()
+                .startsWith(searchBarController.text.toLowerCase()) ||
+            element.productPrice
+                .toString()
+                .startsWith(searchBarController.text.toLowerCase()))
         .toList();
   }
 
@@ -66,24 +67,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme
-        .of(context)
-        .textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final list = searchList();
 
     //slider indicator index
     final ValueNotifier<int> _currentSelectedIndex = ValueNotifier(0);
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: const SizedBox(),
-      //   title: const
-      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CommonAppBar(),
+              const CommonAppBar(),
               const SizedBox(
                 height: 10,
               ),
@@ -139,8 +134,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               CarouselIndicator(currentSelectedIndex: _currentSelectedIndex),
 
-
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -155,7 +148,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const CategoriesScreen()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CategoriesScreen()));
                           },
                           child: Text(
                             "See More ",
@@ -174,12 +171,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             return AllCategoriesItem(
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) =>
-                                        ElectronicsProduct(
-                                            productList: list)));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ElectronicsProduct(
+                                                productList: list)));
                               },
-
                               imgPath: allCategoryList[index]["img"].toString(),
                               text: allCategoryList[index]["name"].toString(),
                             );
@@ -202,7 +200,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
 
-
                     SizedBox(
                       height: 255,
                       child: ListView.builder(
@@ -210,6 +207,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: list.length,
                           itemBuilder: (context, index) {
                             return HomeProductItem(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProductDetailsScreen(
+                                      productDetailList: ProductDetail(
+                                        id: list[index].id,
+                                        productName: list[index].productName,
+                                        productImage: list[index].productImage,
+                                        productRatingStar:
+                                            list[index].productRatingStar,
+                                        productPrice: list[index].productPrice,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),
@@ -245,6 +259,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: list.length,
                           itemBuilder: (context, index) {
                             return HomeProductItem(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                         ProductDetailsScreen(
+                                          productDetailList: ProductDetail(
+                                            id: list[index].id,
+                                            productName: list[index].productName,
+                                            productImage: list[index].productImage,
+                                            productRatingStar:
+                                            list[index].productRatingStar,
+                                            productPrice: list[index].productPrice,
+                                          ),
+                                        ),
+                                  ),
+                                );
+                              },
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),
@@ -274,12 +306,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 15,
                     ),
                     SizedBox(
-                        height: 255,
+                      height: 255,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: list.length,
                           itemBuilder: (context, index) {
                             return HomeProductItem(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                         ProductDetailsScreen(
+                                           productDetailList: ProductDetail(
+                                             id: list[index].id,
+                                             productName: list[index].productName,
+                                             productImage: list[index].productImage,
+                                             productRatingStar:
+                                             list[index].productRatingStar,
+                                             productPrice: list[index].productPrice,
+                                           ),
+                                         ),
+                                  ),
+                                );
+                              },
                               imgPath: list[index].productImage,
                               productName: list[index].productName,
                               price: list[index].productPrice.toString(),

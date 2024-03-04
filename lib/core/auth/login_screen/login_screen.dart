@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/auth/forgote_password/forgate_password_screen/forgote_password_scree.dart';
 import 'package:ecommerce_app/core/auth/registration_screen/registration_screen.dart';
 import 'package:ecommerce_app/core/auth/widget/backgoround_image.dart';
-import 'package:ecommerce_app/core/auth/widget/app_elevated_button.dart';
+import 'package:ecommerce_app/utils/common_widget/app_elevated_button.dart';
 import 'package:ecommerce_app/core/auth/widget/have_account_or_not_widget.dart';
 import 'package:ecommerce_app/core/auth/widget/input_form_feild.dart';
 import 'package:ecommerce_app/core/home_view/main_bottom_nav_bar/main_bottom_nav_bar_screen.dart';

@@ -66,7 +66,7 @@ class WishProductList extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.delete)
+              icon: const Icon(Icons.delete,color: Color(0xff07AEAF),)
             )
 
           ],

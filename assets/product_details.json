@@ -12,7 +12,7 @@
       {
         "ID": 2,
         "ProductName": "New Year Special Shoe 30",
-        "ProductImage": "assets/images/product.png",
+        "ProductImage": "assets/images/car_image.png",
         "ProductRatingStar": 4.5,
         "ProductPrice": 1500
       },
@@ -33,7 +33,7 @@
       {
         "ID": 5,
         "ProductName": "New Year Special Shoe 30",
-        "ProductImage": "assets/images/product.png",
+        "ProductImage": "assets/images/car_image.png ",
         "ProductRatingStar": 4.5,
         "ProductPrice": 1500
       },

@@ -34,21 +34,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         appBar: AppBar(
           title: const Text("catogories"),
         ),
-        body:
-        Expanded(
-          child: GridView.builder(
-
-            itemCount: allCategoryList.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, childAspectRatio: .8),
-            itemBuilder: (context, index) {
-              return AllCategoriesItem(
-                onPressed: () { },
-                imgPath: allCategoryList[index]["img"].toString(),
-                text: allCategoryList[index]["name"].toString(),
-              );
-            },
-          ),
+        body: GridView.builder(
+          itemCount: allCategoryList.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, childAspectRatio: .8),
+          itemBuilder: (context, index) {
+            return AllCategoriesItem(
+              onPressed: () {},
+              imgPath: allCategoryList[index]["img"].toString(),
+              text: allCategoryList[index]["name"].toString(),
+            );
+          },
         ));
   }
 }
