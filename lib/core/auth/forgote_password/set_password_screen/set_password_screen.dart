@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/utils/common_widget/app_elevated_button.dart';
-import 'package:ecommerce_app/core/auth/widget/backgoround_image.dart';
-import 'package:ecommerce_app/core/auth/widget/input_form_feild.dart';
+import 'package:ecommerce_app/utils/common_widget/backgoround_image.dart';
+import 'package:ecommerce_app/utils/common_widget/input_form_feild.dart';
 import 'package:flutter/material.dart';
 
 class SetPasswordScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const BackGroundImageLoginScreen(text: ""),
+          const BackGroundImage(text: ""),
           Padding(
             padding: EdgeInsets.all(30),
             child: Column(

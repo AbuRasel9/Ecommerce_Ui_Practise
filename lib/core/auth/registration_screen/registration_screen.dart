@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/core/auth/login_screen/login_screen.dart';
-import 'package:ecommerce_app/core/auth/widget/backgoround_image.dart';
+import 'package:ecommerce_app/utils/common_widget/backgoround_image.dart';
 import 'package:ecommerce_app/utils/common_widget/app_elevated_button.dart';
 import 'package:ecommerce_app/core/auth/widget/have_account_or_not_widget.dart';
-import 'package:ecommerce_app/core/auth/widget/input_form_feild.dart';
+import 'package:ecommerce_app/utils/common_widget/input_form_feild.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const BackGroundImageLoginScreen(
+            const BackGroundImage(
               text: "Join With Us",
             ),
             Padding(

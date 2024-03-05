@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.productDetailList});
+
   final ProductDetail productDetailList;
 
   @override
@@ -18,6 +19,13 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   final CarouselController _CarouselController = CarouselController();
   final ValueNotifier<int> _currentSelectedIndex = ValueNotifier(0);
+
+  final List imageList=[
+    "assets/images/product.png",
+    "assets/images/product.png",
+    "assets/images/product.png",
+    "assets/images/product.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,41 +54,92 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   slider
                   =========================
                   */
-                  CarouselSlider(
-                    carouselController: _CarouselController,
-                    //viewportFraction used for image show full width in carousel
-                    options: CarouselOptions(
-                        autoPlay: true,
-                        reverse: false,
-                        height: 270.0,
-                        viewportFraction: 1,
-                        onPageChanged: (index, _) {
-                          _currentSelectedIndex.value = index;
-                        }),
 
-                    items: [1, 2, 3, 4, 5].map((i) {
-                      return  ProductDetailsSliderItem(
-                        imgLink: widget.productDetailList.productImage,
-                      );
-                    }).toList(),
+                  Card(
+                    child: Image.asset(
+                      widget.productDetailList.productImage,
+                      height: 300,
+                      width: double.infinity,
+                    ),
                   ),
-
-                  //slider indicatior
-                  CarouselIndicator(
-                    currentSelectedIndex: _currentSelectedIndex,
-                  ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                         Row(
+                        //============
+                        //Image show difference difference or image selection part
+
+                        //==========
+
+                        Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(border: Border.all()),
+                              padding: const EdgeInsets.all(5),
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              // color: Utils.primaryColor,
+                              child: Image.asset(
+                                "assets/images/product.png",
+                                height: 50,
+                                width: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(border: Border.all()),
+                              padding: const EdgeInsets.all(
+                                5,
+                              ),
+                              // color: Utils.primaryColor,
+                              child: Image.asset(
+                                "assets/images/product.png",
+                                height: 50,
+                                width: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(border: Border.all()),
+                              padding: const EdgeInsets.all(
+                                5,
+                              ),
+                              // color: Utils.primaryColor,
+                              child: Image.asset(
+                                "assets/images/product.png",
+                                height: 50,
+                                width: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(border: Border.all()),
+                              padding: const EdgeInsets.all(
+                                5,
+                              ),
+                              // color: Utils.primaryColor,
+                              child: Image.asset(
+                                "assets/images/product.png",
+                                height: 50,
+                                width: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        //============
+                        // increment decrement part
+                        //==========
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
                                 child: Text(
-                                  widget.productDetailList.productName,
+                              widget.productDetailList.productName,
                               maxLines: 3,
                               style: const TextStyle(
                                 color: Colors.black87,
@@ -97,7 +156,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               Icons.star,
                               color: Colors.amber,
                             ),
-                             Text(widget.productDetailList.productRatingStar.toString()),
+                            Text(widget.productDetailList.productRatingStar
+                                .toString()),
                             const SizedBox(
                               width: 8,
                             ),
@@ -278,11 +338,17 @@ about Lorem Ipsum, giving information on its origins, as well as a random Lipsum
                   ],
                 ),
                 SizedBox(
-                    width: 100,
+                    width: 130,
                     child: AppElevatedButton(
                       buttonText: 'Add To Cart',
                       onPressed: () {},
-                    )),
+                    ),),
+                SizedBox(
+                    width: 110,
+                    child: AppElevatedButton(
+                      buttonText: 'Buy Now',
+                      onPressed: () {},
+                    ),),
               ],
             ),
           )

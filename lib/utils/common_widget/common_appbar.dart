@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/profile_view/profile_screen/profile_screen.dart';
 import 'package:ecommerce_app/utils/constant/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,12 @@ class CommonAppBar extends StatelessWidget {
                 CircleAvatar(
                     backgroundColor: const Color.fromRGBO(243, 243, 243, 1),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ProfileScreen()));
+                      },
                       icon: const Icon(
                         Icons.person_outlined,
                         color: Colors.black45,

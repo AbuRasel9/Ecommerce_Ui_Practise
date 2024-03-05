@@ -15,6 +15,7 @@ class CartProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Card(
+      
       color: Colors.white,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Row(
@@ -83,11 +84,7 @@ class CartProductItem extends StatelessWidget {
                       IconButton(
                         alignment: Alignment.topRight,
                         onPressed: () {},
-                        icon: Image.asset(
-                          "assets/images/delete_icon.png",color: Colors.red,
-
-                          fit: BoxFit.cover,
-                        ),
+                        icon: const Icon(Icons.delete)
                       ),
                     ],
                   ),

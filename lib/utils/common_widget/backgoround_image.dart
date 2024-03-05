@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
-class BackGroundImageLoginScreen extends StatelessWidget {
-  const BackGroundImageLoginScreen({
-    super.key, required this.text,
+class BackGroundImage extends StatelessWidget {
+  const BackGroundImage({
+    super.key,
+    required this.text,
   });
+
   final String? text;
 
   @override
@@ -12,9 +14,10 @@ class BackGroundImageLoginScreen extends StatelessWidget {
     return Container(
       height: 400,
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/background.png'),
-              fit: BoxFit.fill),),
+        image: DecorationImage(
+            image: AssetImage('assets/images/background.png'),
+            fit: BoxFit.fill),
+      ),
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -25,8 +28,10 @@ class BackGroundImageLoginScreen extends StatelessWidget {
               duration: const Duration(seconds: 1),
               child: Container(
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/light-1.png'),),),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/light-1.png'),
+                  ),
+                ),
               ),
             ),
           ),
@@ -62,13 +67,14 @@ class BackGroundImageLoginScreen extends StatelessWidget {
               duration: const Duration(milliseconds: 1600),
               child: Container(
                 margin: const EdgeInsets.only(top: 50),
-                child:  Center(
+                child: Center(
                   child: Text(
                     text!,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                    style:Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white)
+                    // const TextStyle(
+                    //     color: Colors.white,
+                    //     fontSize: 40,
+                    //     fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
