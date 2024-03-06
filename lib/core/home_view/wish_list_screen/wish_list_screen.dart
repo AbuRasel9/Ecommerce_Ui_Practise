@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/home_view/wish_list_screen/widget/wish_product_list.dart';
+import 'package:ecommerce_app/models/product_models.dart';
 import 'package:flutter/material.dart';
 
 class WishListScreen extends StatefulWidget {
@@ -9,32 +10,25 @@ class WishListScreen extends StatefulWidget {
 }
 
 class _WishListScreenState extends State<WishListScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      backgroundColor: const Color(0xffFDF0F3),      appBar: AppBar(
         title: const Text("wish list"),
       ),
-      body:  Padding(
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 10),
-        child: GridView.builder(
+        child: ListView.builder(
           itemCount: 10,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
 
-              childAspectRatio: .75
-
-
-          ),
           itemBuilder: (context, index) {
-            return const WishProductList(
-              imgPath: "assets/images/product.png",
-              productName: "New Year Special Shoe 30",
-              price: "1500",
-              rating: "4.5",
-              iconButtonImage: 'assets/images/home/heart.png',
+            return  WishProductItem(
+              productItem: ProductDetail(
+                  id: index,
+                  productName: "New Year Special Shoe 30",
+                  productImage: "assets/images/product.png",
+                  productRatingStar: 4.8,
+                  productPrice: 5000),
             );
             ;
           },

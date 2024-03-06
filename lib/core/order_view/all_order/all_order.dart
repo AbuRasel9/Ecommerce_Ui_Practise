@@ -17,6 +17,7 @@ class _AllOrderState extends State<AllOrder> {
           itemCount: 10,
           itemBuilder: (context, index) {
             return  OrderCardItem(
+              onpressed: (){},
                 productName: "New Year Special Shoe",
                 productSize: "30",
                 productImagePath: "assets/images/product.png",

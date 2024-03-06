@@ -15,11 +15,12 @@ class _PlaceOrderState extends State<PlaceOrder> {
       body:  ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
-            return const OrderCardItem(
+            return  OrderCardItem(
+              onpressed: () {  },
               productName: "New Year Special Shoe",
               productSize: "30",
               productImagePath: "assets/images/product.png",
-              productPrice: "300", status: "Place Order",);
+              productPrice: "300", status: "Place Order", );
           }),
     );
   }

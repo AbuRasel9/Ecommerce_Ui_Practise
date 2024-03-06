@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:ecommerce_app/core/home_view/wish_list_screen/wish_list_screen.dart';
 import 'package:ecommerce_app/core/order_view/tabbar_view/tabbar_view.dart';
 import 'package:ecommerce_app/core/order_view/tabbar_view/widget/tabbar_item.dart';
+import 'package:ecommerce_app/core/profile_view/profile_screen/widget/profile_image_part.dart';
 import 'package:ecommerce_app/core/profile_view/update_profile_screen/update_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -129,7 +131,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const OrderListView()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AppTabBarView()));
                 },
                 leading: CircleAvatar(
                   backgroundColor: const Color(0xff1ce524),
@@ -141,7 +146,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 10,
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WishListScreen()));
+                },
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xffe75126),
                   child: Icon(
@@ -184,44 +194,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class ProfileButtonItem extends StatelessWidget {
-  const ProfileButtonItem({
-    super.key,
-    required this.buttonIcon,
-    required this.text,
-    required this.iconColor,
-    required this.onPressed,
-  });
-
-  final Icon buttonIcon;
-  final String text;
-  final Color iconColor;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Card(
-          color: const Color(0xfff2f3f5),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: IconButton(
-            onPressed: onPressed,
-            icon: buttonIcon,
-            color: iconColor,
-          ),
-        ),
-        Text(
-          text,
-        )
-      ],
     );
   }
 }

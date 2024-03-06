@@ -33,6 +33,7 @@ class _IncDecFormFeildState extends State<IncDecFormFeild> {
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
+              border: Border.all(),
               color: Colors.white,
             ),
             child: const Icon(
@@ -74,6 +75,8 @@ class _IncDecFormFeildState extends State<IncDecFormFeild> {
           child: Container(
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
+              border: Border.all(),
+
               borderRadius: BorderRadius.circular(4),
               color: Colors.white,
             ),
