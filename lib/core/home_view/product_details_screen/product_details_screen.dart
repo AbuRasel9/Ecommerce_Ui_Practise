@@ -50,7 +50,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   =========================
                   */
 
-                  Card(
+                  Container(
+
                     child: img1
                         ? Image.network(
                             "https://d2s30hray1l0uq.cloudfront.net/frontend/shoe-photography-featured-image.jpg",
