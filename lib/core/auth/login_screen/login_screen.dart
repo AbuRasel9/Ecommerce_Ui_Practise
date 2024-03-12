@@ -8,7 +8,8 @@ import 'package:ecommerce_app/core/home_view/main_bottom_nav_bar/main_bottom_nav
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
-void main() => runApp(const MaterialApp(
+void main() =>
+    runApp(const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
     ));
@@ -52,7 +53,10 @@ class LoginScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 1900),
                       child: AppElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const MainBottomNavBar()));
+                          Navigator.pushAndRemoveUntil(context,
+                              MaterialPageRoute(builder: (
+                                  context) => const MainBottomNavBar()), (
+                                  route) => false);
                         },
                         buttonText: "Login",
                       ),
@@ -64,15 +68,16 @@ class LoginScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 2000),
                       child: TextButton(
                         onPressed: () {},
-                        child:  TextButton(
+                        child: TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ForgatePasswordScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (
+                                context) => const ForgatePasswordScreen()));
                           },
-                          child:  const Text("Forgot Password?",
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Color.fromRGBO(143, 148, 251, 1),
-                          ),),
+                          child: const Text("Forgot Password?",
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                            ),),
 
                         ),
                       ),
@@ -87,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const RegistrationScreen()));
+                                  const RegistrationScreen()));
                         },
                       ),
                     ),

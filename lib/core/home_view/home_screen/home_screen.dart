@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app/core/home_view/categories_screen/categrory_screen/categories_screen.dart';
 import 'package:ecommerce_app/core/home_view/categories_screen/electronics_product_screen/electronics_product.dart';
+import 'package:ecommerce_app/core/home_view/home_screen/widget/home_screen_drawer.dart';
 import 'package:ecommerce_app/core/home_view/product_details_screen/product_details_screen.dart';
-import 'package:ecommerce_app/utils/common_widget/common_appbar.dart';
+import 'package:ecommerce_app/core/home_view/search_product_screen/search_product_screen.dart';
 import 'package:ecommerce_app/core/home_view/home_screen/widget/home_product_item.dart';
 import 'package:ecommerce_app/utils/common_widget/slider_indicator.dart';
 import 'package:ecommerce_app/core/home_view/home_screen/widget/slider_item.dart';
@@ -73,37 +74,37 @@ class _HomeScreenState extends State<HomeScreen> {
     //slider indicator index
     final ValueNotifier<int> _currentSelectedIndex = ValueNotifier(0);
     return Scaffold(
+      drawer: const HomeScreenDrawer(),
+      appBar: AppBar(
+        title: SizedBox(
+          height: 45,
+          child: TextFormField(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchProduct()));
+            },
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.search, color: Colors.black),
+              hintText: "What Would You Like To Buy",
+              hintStyle: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal),
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CommonAppBar(),
               const SizedBox(
                 height: 10,
               ),
 
-              // TextFormField(
-              //   decoration: InputDecoration(
-              //     prefixIcon: const Icon(
-              //       Icons.search,
-              //       color: Color.fromRGBO(143, 148, 251, 1),
-              //     ),
-              //     hintText: "Search",
-              //     contentPadding:
-              //         const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-              //     focusedBorder: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(15),
-              //         borderSide: const BorderSide(
-              //           color: Color.fromRGBO(143, 148, 251, 1),
-              //         )),
-              //     enabledBorder: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(15),
-              //         borderSide: const BorderSide(
-              //           color: Color.fromRGBO(143, 148, 251, 1),
-              //         )),
-              //   ),
-              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -263,17 +264,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                         ProductDetailsScreen(
-                                          productDetailList: ProductDetail(
-                                            id: list[index].id,
-                                            productName: list[index].productName,
-                                            productImage: list[index].productImage,
-                                            productRatingStar:
+                                    builder: (context) => ProductDetailsScreen(
+                                      productDetailList: ProductDetail(
+                                        id: list[index].id,
+                                        productName: list[index].productName,
+                                        productImage: list[index].productImage,
+                                        productRatingStar:
                                             list[index].productRatingStar,
-                                            productPrice: list[index].productPrice,
-                                          ),
-                                        ),
+                                        productPrice: list[index].productPrice,
+                                      ),
+                                    ),
                                   ),
                                 );
                               },
@@ -316,17 +316,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                         ProductDetailsScreen(
-                                           productDetailList: ProductDetail(
-                                             id: list[index].id,
-                                             productName: list[index].productName,
-                                             productImage: list[index].productImage,
-                                             productRatingStar:
-                                             list[index].productRatingStar,
-                                             productPrice: list[index].productPrice,
-                                           ),
-                                         ),
+                                    builder: (context) => ProductDetailsScreen(
+                                      productDetailList: ProductDetail(
+                                        id: list[index].id,
+                                        productName: list[index].productName,
+                                        productImage: list[index].productImage,
+                                        productRatingStar:
+                                            list[index].productRatingStar,
+                                        productPrice: list[index].productPrice,
+                                      ),
+                                    ),
                                   ),
                                 );
                               },
@@ -348,3 +347,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
